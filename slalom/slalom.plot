@@ -1,6 +1,10 @@
 #
-set terminal png size 1024
-set output "slalom.png"
+#set terminal png size 1024
+#set output "slalom.png"
+
+set terminal svg
+set output "slalom.svg"
+
 set size ratio -1
 
 set datafile separator ","

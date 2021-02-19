@@ -1,5 +1,9 @@
-set terminal png size 1024
-set output "bounce.png"
+#set terminal png size 1024
+#set output "bounce.png"
+
+set terminal svg
+set output "bounce.svg"
+
 set size ratio -1
 
 set datafile separator ","
