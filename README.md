@@ -12,4 +12,3 @@ Resulted svg (or png) image will be located in the same folder
 
 To prepare csv for copy/paste to jave code ```awk '{print "{"$1"},"}' barrel.csv``` can be used
 
-hi
