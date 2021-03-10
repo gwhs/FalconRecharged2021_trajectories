@@ -1,7 +1,7 @@
-#set terminal png size 1024
-#set output "barrel.png"
-set terminal svg
-set output "barrel.svg"
+set terminal png size 1024
+set output "barrel.png"
+#set terminal svg
+#set output "barrel.svg"
 
 set size ratio -1
 
