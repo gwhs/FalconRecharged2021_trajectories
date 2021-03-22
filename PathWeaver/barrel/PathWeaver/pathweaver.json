@@ -1,0 +1,9 @@
+{
+  "lengthUnit": "Inch",
+  "exportUnit": "Same as Project",
+  "maxVelocity": 5.0,
+  "maxAcceleration": 2.0,
+  "wheelBase": 1.0,
+  "gameName": "Barrel Racing Path",
+  "outputDir": ".."
+}
