@@ -1,6 +1,17 @@
 # FalconRecharged2021_trajectories
 
-Trajectory maker for Infinity at Home challeneges 2021 ( [[https://firstfrc.blob.core.windows.net/frc2021/Manual/AtHomeManualSections/2021AtHomeChallengesManualSection02.pdf]])
+Trajectory makers
+[Infinity at Home challeneges 2021](https://firstfrc.blob.core.windows.net/frc2021/Manual/AtHomeManualSections/2021AtHomeChallengesManualSection02.pdf)
+
+
+folders description:
+
+* Pathveawer - experiments with [pathweaver tool](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html)
+* python - python based model
+* gnuplot - [gnuplot](http://www.gnuplot.info/) model
+ 
+
+for gnuplot:
 
 You'll need:
 
