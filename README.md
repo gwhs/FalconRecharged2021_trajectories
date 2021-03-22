@@ -7,7 +7,7 @@ Trajectory makers
 folders description:
 
 * Pathveawer - experiments with [pathweaver tool](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html)
-* python - python based model
+* python - python based model ( python 3.x, matplotlib, pandas and scipy pip modules ) 
 * gnuplot - [gnuplot](http://www.gnuplot.info/) model
  
 
