@@ -102,7 +102,7 @@ for i, txt in enumerate(point):
 #table.set_fontsize(8)
 #table.scale(.7,.7)
 
-plt.savefig(out_file)
+plt.savefig(out_file,bbox_inches='tight')
 print("TrajectoryHelper block:")
 
 with open(out_java, 'w') as f:
