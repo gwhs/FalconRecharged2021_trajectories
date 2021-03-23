@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
 import sys
+import os
 import argparse
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate as ip
-#from tkinter.filedialog import askopenfilename
 import easygui
+
+
+abspath = os.path.abspath(__file__)
+os.chdir(os.path.dirname(abspath))
 
 image_display_time = 3000
 
@@ -21,13 +25,13 @@ args = parser.parse_args()
 def close_event():
     plt.close()
 
+
 if args.csvfile:
     data_file = args.csvfile
 else:
-    print('csvfile (-i)', 'challenge name (-n)')
+    #print('csvfile (-i)', 'challenge name (-n)')
     #data_file = input ("csv file name : ")
-    #data_file = askopenfilename(initialdir = "." , filetypes = (("csv files","*.csv"),("all files","*.*")))
-    data_file = easygui.fileopenbox(default='*.csv', filetypes = ["*.csv"])
+    data_file = easygui.fileopenbox(default='*.csv', filetypes=["*.csv"])
 
 if args.name:
     markers_file = args.name + '_markers.csv'
@@ -42,8 +46,9 @@ else:
         markers_file = 'markers.csv'
 
 out_file = data_file.split('.')[0] + '.png'
+out_java = data_file.split('.')[0] + '.java'
 
-fig = plt.figure(dpi=120) # facecolor='w', edgecolor='k')
+fig = plt.figure(dpi=120)  # facecolor='w', edgecolor='k')
 timer = fig.canvas.new_timer(interval=image_display_time)
 timer.add_callback(close_event)
 
@@ -99,9 +104,16 @@ for i, txt in enumerate(point):
 
 plt.savefig(out_file)
 print("TrajectoryHelper block:")
-for v in data.values: 
-    print('\t{'+str(v[1])+','+str(-1*v[2])+'},\t// '+str(v[0])) 
+
+with open(out_java, 'w') as f:
+    print('{', file=f)
+    for v in data.values:
+        print('\t{' + str(v[1]) + ',' + str(-1 * v[2]) + '},\t// ' + str(v[0]),
+              file=f)
+        print('\t{' + str(v[1]) + ',' + str(-1 * v[2]) + '},\t// ' + str(v[0]))
+    print('}', file=f)
 
 timer.start()
 plt.show()
 print('result is saved as ' + out_file)
+print('java code block is saved as ' + out_java)
