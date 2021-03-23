@@ -1,30 +1,34 @@
 #!/usr/bin/env python3
 
 import sys
-import getopt
 import argparse
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate as ip
+#from tkinter.filedialog import askopenfilename
+import easygui
 
 image_display_time = 3000
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--name", help="Name")
-parser.add_argument("-i", "--csvfile", help="CSV name", default='data.csv')
+#parser.add_argument("-i", "--csvfile", help="CSV name", default='data.csv')
+parser.add_argument("-i", "--csvfile", help="CSV name")
 args = parser.parse_args()
 
 
 def close_event():
     plt.close()
 
-
 if args.csvfile:
     data_file = args.csvfile
-    out_file = data_file.split('.')[0] + '.png'
 else:
     print('csvfile (-i)', 'challenge name (-n)')
+    #data_file = input ("csv file name : ")
+    #data_file = askopenfilename(initialdir = "." , filetypes = (("csv files","*.csv"),("all files","*.*")))
+    data_file = easygui.fileopenbox(default='*.csv', filetypes = ["*.csv"])
+
 if args.name:
     markers_file = args.name + '_markers.csv'
 else:
@@ -37,7 +41,9 @@ else:
     else:
         markers_file = 'markers.csv'
 
-fig = plt.figure(dpi=240, facecolor='w', edgecolor='k')
+out_file = data_file.split('.')[0] + '.png'
+
+fig = plt.figure(dpi=120) # facecolor='w', edgecolor='k')
 timer = fig.canvas.new_timer(interval=image_display_time)
 timer.add_callback(close_event)
 
@@ -84,6 +90,12 @@ ax.scatter(x, y, color='b', alpha=0.5)
 ax.plot(x, y, color='b', alpha=0.2)
 for i, txt in enumerate(point):
     plt.annotate(txt, (x[i], y[i]))
+#table = ax.table(cellText=data.values,
+#                 loc='top',
+#                  colWidths = [0.1, 0.2, 0.2]
+#                 )
+#table.set_fontsize(8)
+#table.scale(.7,.7)
 
 plt.savefig(out_file)
 print("TrajectoryHelper block:")
