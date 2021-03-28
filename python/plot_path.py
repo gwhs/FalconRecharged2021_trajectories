@@ -47,6 +47,8 @@ else:
 
 out_file = data_file.split('.')[0] + '.png'
 out_java = data_file.split('.')[0] + '.java'
+print(out_file)
+print(out_java)
 
 fig = plt.figure(dpi=120)  # facecolor='w', edgecolor='k')
 timer = fig.canvas.new_timer(interval=image_display_time)
