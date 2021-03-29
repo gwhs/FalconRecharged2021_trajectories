@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate as ip
-import easygui
+#import easygui
 
 
 abspath = os.path.abspath(__file__)
