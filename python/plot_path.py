@@ -50,7 +50,7 @@ out_java = data_file.split('.')[0] + '.java'
 print(out_file)
 print(out_java)
 
-fig = plt.figure(dpi=120)  # facecolor='w', edgecolor='k')
+fig = plt.figure(dpi=300)  # facecolor='w', edgecolor='k')
 timer = fig.canvas.new_timer(interval=image_display_time)
 timer.add_callback(close_event)
 
